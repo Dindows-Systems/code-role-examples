@@ -1,0 +1,143 @@
+@import url('normalize.css');
+
+/* General Demo Style */
+body{
+	font-family: 'Courier New', 'Courier', monospace;
+	background: #c88a3c url(../images/bg.jpg) no-repeat fixed center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	font-weight: 400;
+	font-size: 15px;
+	color: #333;
+	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+}
+a{
+	color: #555;
+	text-decoration: none;
+}
+.container{
+	width: 100%;
+	position: relative;
+}
+.clr{
+	clear: both;
+	padding: 0;
+	height: 0;
+	margin: 0;
+}
+.main{
+	position: relative;
+	width: 100%;
+}
+.container > header{
+	margin: 10px;
+	padding: 20px 10px 10px 10px;
+	position: relative;
+	display: block;
+    text-align: left;
+	width: 20%;
+	float: left;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.container > header h1{
+	font-size: 36px;
+	line-height: 36px;
+	margin: 0;
+	position: relative;
+	font-family: 'Pacifico', Cambria, Georgia, serif;
+	font-weight: 300;
+	color: #c0e3e8;
+	padding-bottom: 20px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+.container > header h1 span{
+	font-weight: 700;
+}
+.container > header h2{
+	font-size: 14px;
+	font-weight: 300;
+	margin: 0;
+	width: 200px;
+	line-height: 20px;
+	color: #fff;
+	display: inline;
+	clear: both;
+	letter-spacing: 2px;	
+	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+.container > header h2 strong{
+	text-decoration: underline;
+}
+/* Header Style */
+.codrops-top{
+	line-height: 24px;
+	font-size: 11px;
+	text-transform: uppercase;
+	z-index: 9999;
+	background: rgba(255,255,255,0.1);
+	position: relative;
+	font-family: Cambria, Georgia, serif;
+	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
+}
+.codrops-top a{
+	padding: 0px 10px;
+	letter-spacing: 1px;
+	color: #333;
+	display: inline-block;
+}
+.codrops-top a:hover{
+	background: rgba(255,255,255,0.3);
+}
+.codrops-top span.right{
+	float: right;
+}
+.codrops-top span.right a{
+	float: left;
+	display: block;
+}
+.support-note span{
+	color: #ac375d;
+	font-size: 16px;
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px 0;
+}
+.no-cssanimations .support-note span.no-cssanimations,
+.no-csstransforms .support-note span.no-csstransforms,
+.no-csstransforms3d .support-note span.no-csstransforms3d,
+.no-csstransitions .support-note span.no-csstransitions,
+.no-generatedcontent .support-note span.no-generatedcontent{
+	display: block;
+}
+
+body #codrops-ad-wrapper{
+	bottom: 10px;
+	top: auto;
+	left: 10px;
+}
+
+@media screen and (max-width: 790px) {
+	.container > header h1{
+		font-size: 26px;
+		line-height: 26px;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	body{
+		overflow: auto;
+	}
+	.container > header{
+		text-align: center;
+		width: auto;
+		float: none;
+	}
+}

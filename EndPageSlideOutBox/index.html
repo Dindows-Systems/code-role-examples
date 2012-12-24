@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>End of Page Slide Out Box</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="box that slides out in the end of a page or article with jquery" />
+        <meta name="keywords" content="jquery, slide out, box, end of page, trigger, related posts"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{
+                font-family:Georgia,Times,serif;
+                background:#f0f0f0 url(title.png) no-repeat top left;
+                padding-bottom:60px;
+            }
+            a.back{
+                background:transparent url(back.png) no-repeat top left;
+                position:fixed;
+                width:150px;
+                height:27px;
+                outline:none;
+                top:0px;
+                right:0px;
+            }
+            span.scroll{
+                background:transparent url(scroll.png) no-repeat top left;
+                position:fixed;
+                width:100px;
+                height:37px;
+                bottom:0px;
+                left:0px;
+            }
+            #content{
+                background-color:#fff;
+                width:650px;
+                padding:40px;
+                margin:0 auto;
+                border-left:10px solid #E28409;
+                border-right:1px solid #ddd;
+                -moz-box-shadow:0px 0px 16px #aaa;
+            }
+            .head{
+                font-family:Helvetica,Arial,Verdana;
+                text-transform:uppercase;
+                font-weight:bold;
+                font-size:12px;
+                letter-spacing:3px;
+                color:#888;
+                border-bottom:3px solid #f0f0f0;
+                padding-bottom:10px;
+                margin-bottom:10px;
+            }
+            #content h1{
+                color:#E28409;
+                font-weight:normal;
+                font-size:56px;
+                text-shadow:1px 1px 1px #aaa;
+
+            }
+            .subline{
+                font-size:22px;
+                margin:20px 0px;
+                color:#999;
+            }
+            .meta{
+                font-style:italic;
+                color:#999;
+            }
+            .article p{
+                margin:20px 0px;
+                line-height:26px;
+                text-align:justify;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="content">
+            <a class="back" href="http://tympanus.net/codrops/2010/04/13/end-of-page-slide-out-box/"></a>
+            <span class="scroll"></span>
+            <p class="head">Technology & Science</p>
+            <h1>About Recommender Systems</h1>
+            <p class="subline">Current landscape and new challenges</p>
+            <p class="meta">by Jack Wilde</p>
+            <div class="article">
+                <p>Recommender systems have become an essential tool for finding the needle
+                    in the haystack of the World Wide Web - the information or item one is searching
+                    for. Finding the desired item is a daunting task considering the amount of information
+                    that is present in the WWW and its databases, and almost every e-commerce application
+                    will provide the user with the help of a recommender system to suggest products or
+                    information that the user might want or need. Recommender systems are employed to recommend
+                    products in online stores, news articles in news subscription sites or financial
+                    services like retirement plans. There are different recommendation methods,
+                    each one with its advantages and disadvantages. In order to provide individualized
+                    recommendations to each user of such a system, personalization is of high importance.
+                    In order to be able to personalize the use of a system, users are often modeled by the
+                    recommender system. Generally, the user model represents the user's taste, and it is
+                    generated, learned, or extracted from the information available about the user. Again,
+                    there are several methods to create a user model, which are often characteristic for every
+                    recommendation technique. User models can be built on explicit and implicit data. While explicit
+                    data refers to the data directly provided by the user in the form of, e.g. a questionnaire,
+                    implicit data refers to data provided implicitly by e.g. the user behavior. Often user models
+                    are created using both types of information.</p>
+                <p>
+                    There are three main methods commonly employed in recommender applications: collaborative filtering,
+                    content-based filtering, and knowledge-based methods. Collaborative filtering, the most efficient
+                    and popular approach, is based on the idea that people who share the same taste will like the things
+                    some similar-minded person preferred. For capturing a user's taste, ratings of the available items are
+                    employed to represent the user. Ratings are typically numerical values standing for the degree of utility
+                    or subjective value of an item. By computing similarities between rating patterns of users, the rating
+                    of a user for an unseen item can be predicted, and eventually recommended. In that process, a neighborhood
+                    of similar users is detected, and their ratings will determine a prediction value for an item the user has
+                    not yet rated. Since ratings are used to calculate recommendations, a collaborative filtering system needs
+                    many ratings in order to work properly cold-start problem. Once enough rating data is available,
+                    the technique is very efficient and increases in accuracy as more information is available. Further,
+                    the probability increases that a user with exquisite and rare taste receives satisfactory recommendations
+                    (niche-finding). Also, a new user that did not provide any ratings yet, cannot receive personalized recommendations
+                    new user problem. Another disadvantage of the approach is the inability to recommend a new item,
+                    since nobody rated that item yet new item problem.</p>
+                <p>In content-based techniques users are not compared to users, but to items. A user model is learned on basis
+                    of the content, i.e. the features or the properties of the items a user liked.
+                    New items can be recommended that are similar to the ones previously liked by the user.
+                    The user is modeled using a feature vector, representing his interest in form of key features
+                    of the items he likes. Since this technique is dependent on information about the items in order
+                    to provide recommendations, data has to be extracted and converted into a machine processable way.
+                    Because this is done straightforwardly with digital documents or texts, content-based techniques are
+                    mainly applied in the domain of document recommendation systems, like webpage, news article or book
+                    recommender systems. Applying it to other domains can be very costly since all the information about
+                    the items has to be represented somehow. The cold-start problem is also present in content-based recommender
+                    systems, as well as the new user problem. The new item problem is avoided since content-based filtering does
+                    not depend on how others rated that item in order to recommend it.
+                </p>
+                <p> Knowledge-based recommendation systems apply techniques from Artificial Intelligence and especially
+                    from knowledge representation and reasoning in order to provide recommendations. By using knowledge
+                    about users and items a knowledge-based recommender system will reason about what items meet the
+                    user's requirements. That knowledge can be encoded in the form of e.g. rules and saved in the knowledge base.
+                    Different from the other approaches, the user's individual taste is not in focus but his specific requirements.
+                    These needs are inquired in form of a dialog with the system or by the use of a questionnaire. On the basis of
+                    the knowledge about the items and these requirements, a reasoning process will find the best matching item. The
+                    reasoning process in knowledge-based recommender systems and also the knowledge base can be implemented using
+                    different techniques. Logic programming languages are often employed for their elementariness in representing
+                    knowledge and defining reasoning mechanisms. An advantage of knowledge-based recommender systems is the easiness
+                    of deriving explanations from the reasoning process. Every recommendation can be traced back to the requirements
+                    of the user and the knowledge used to infer the recommendation. The need for knowledge engineering and maintenance
+                    of the system, when e.g. new items have to be entered, are major drawbacks of these systems and often do not allow
+                    employing them in very large domains.</p>
+                <p>Hybrid recommender systems are using more than one technique in order to overcome technique specific disadvantages.
+                    This merging of techniques can be carried out using one of several interaction types that define how the two techniques
+                    will work together. One technique can, for example, be used to produce recommendations, and another technique will refine
+                    these recommendations. This interaction is called cascading. Another hybrid method is switching.
+                    In a switching hybrid recommender system, some criteria is used to switch between techniques depending on the situation.
+                    Hybrids using e.g. the collaborative filtering and the content-based method can avoid the new item problem, while retaining
+                    the efficiency and niche-finding capabilities of collaborative filtering.</p>
+                <p id="last">Recommender systems that are employed in online applications with many users and large amounts of items,
+                    have their priority set on performance. The aim is to provide accurate recommendations to each user,
+                    while maintaining efficiency. The larger the system the more important if the factor of efficiency.
+                    This often prevents to employ an expressive user model. In some systems, the user does not even get
+                    modeled individually but by means of a group definition. This can highly impact the accuracy of recommendations.
+                    Further, recommender systems barely provide a way for the user to specify individual preferences explicitly.
+                    Most systems only offer feedback mechanisms where e.g. already presented recommendations can get refined
+                    or where the user can exclude items from the recommender process. Moreover, the explanation mechanisms are
+                    quite poor. Due to the statistical and similarity methods used in e.g. collaborative filtering, it is very
+                    difficult to provide an explanation once a recommendation is calculated. While knowing that the ratings of
+                    items are the initial factors of a recommendation process, the process itself remains a "black box".
+                    Especially the involvement of other user behavior makes it a complicated task to explain recommendations
+                    in a user understandable way. And the information provided in present systems can make the user undervalue
+                    the power of the such systems by believing that it only infers recommendations based on primitive similarity
+                    calculations. Further, this situation can make the user lose trust. systems that are employed in online applications with many users and large amounts of items,
+                    have their priority set on performance. The aim is to provide accurate recommendations to each user,
+                    while maintaining efficiency. The larger the system the more important if the factor of efficiency.
+                    This often prevents to employ an expressive user model. In some systems, the user does not even get
+                    modeled individually but by means of a group definition. This can highly impact the accuracy of recommendations.
+                    Further, recommender systems barely provide a way for the user to specify individual preferences explicitly.
+                    Most systems only offer feedback mechanisms where e.g. already presented recommendations can get refined
+                    or where the user can exclude items from the recommender process. Moreover, the explanation mechanisms are
+                    quite poor. Due to the statistical and similarity methods used in e.g. collaborative filtering, it is very
+                    difficult to provide an explanation once a recommendation is calculated. While knowing that the ratings of
+                    items are the initial factors of a recommendation process, the process itself remains a "black box".
+                    Especially the involvement of other user behavior makes it a complicated task to explain recommendations
+                    in a user understandable way. And the information provided in present systems can make the user undervalue
+                    the power of the such systems by believing that it only infers recommendations based on primitive similarity
+                    calculations. Further, this situation can make the user lose trust.
+					systems that are employed in online applications with many users and large amounts of items,
+                    have their priority set on performance. The aim is to provide accurate recommendations to each user,
+                    while maintaining efficiency. The larger the system the more important if the factor of efficiency.
+                    This often prevents to employ an expressive user model. In some systems, the user does not even get
+                    modeled individually but by means of a group definition. This can highly impact the accuracy of recommendations.
+                    Further, recommender systems barely provide a way for the user to specify individual preferences explicitly.
+                    Most systems only offer feedback mechanisms where e.g. already presented recommendations can get refined
+                    or where the user can exclude items from the recommender process. Moreover, the explanation mechanisms are
+                    quite poor. Due to the statistical and similarity methods used in e.g. collaborative filtering, it is very
+                    difficult to provide an explanation once a recommendation is calculated. While knowing that the ratings of
+                    items are the initial factors of a recommendation process, the process itself remains a "black box".
+                    Especially the involvement of other user behavior makes it a complicated task to explain recommendations
+                    in a user understandable way. And the information provided in present systems can make the user undervalue
+                    the power of the such systems by believing that it only infers recommendations based on primitive similarity
+                    calculations. Further, this situation can make the user lose trust.</p>
+            </div>
+           
+        </div>
+        <div id="slidebox">
+            <a class="close"></a>
+            <p>More in Technology & Science (4 of 23 articles)</p>
+            <h2>The Social Impact of Scientific Research and new Technologies</h2>
+            <a class="more">Read More »</a>
+        </div>
+        <!-- The JavaScript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$(window).scroll(function(){
+		/* when reaching the element with id "last" we want to show the slidebox. Let's get the distance from the top to the element */
+		var distanceTop = $('#last').offset().top - $(window).height();
+		
+		if  ($(window).scrollTop() > distanceTop)
+			$('#slidebox').animate({'right':'0px'},300);
+		else 
+			$('#slidebox').stop(true).animate({'right':'-430px'},100);	
+	});
+	
+	/* remove the slidebox when clicking the cross */
+	$('#slidebox .close').bind('click',function(){
+		$(this).parent().remove();
+	});
+});
+</script>
+    </body>
+</html>

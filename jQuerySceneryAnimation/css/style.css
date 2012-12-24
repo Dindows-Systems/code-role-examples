@@ -1,0 +1,111 @@
+body{
+    overflow:hidden;
+}
+#clouds, #sky, #night, #stars{
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    width:100%;
+}
+#sky{
+    background:#fff url(../images/sky.png) repeat-x top left;
+    z-index:1;
+}
+#sun_yellow{
+    position:absolute;
+    left:45%;
+    top:50%;
+    width:150px;
+    height:152px;
+    background:transparent url(../images/sun.png) no-repeat center center;
+    z-index:2;
+}
+#sun_red{
+    position:absolute;
+    left:45%;
+    top:50%;
+    width:150px;
+    height:152px;
+    background:transparent url(../images/sun2.png) no-repeat center center;
+    z-index:2;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#clouds{
+    background:transparent url(../images/clouds.png) repeat-x top left;
+    z-index:3;
+}
+#ground{
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    width:100%;
+    height:232px;
+    background:transparent url(../images/ground.png) repeat-x bottom center;
+    z-index:3;
+}
+#night{
+    background-color:#000;
+    z-index:4;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#stars{
+    bottom:200px;
+    background:transparent url(../images/stars.png) repeat bottom center;
+    z-index:5;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#sstar{
+    position:absolute;
+    left:40%;
+    top:10%;
+    width:126px;
+    height:80px;
+    background:transparent url(../images/shootingstar.png) no-repeat 80px -200px;
+    z-index:5;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#moon{
+    position:absolute;
+    left:45%;
+    top:60%;
+    width:168px;
+    height:168px;
+    background:transparent url(../images/moon.png) no-repeat center center;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+
+/* Just for the showcase*/
+
+#title{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:500px;
+    height:300px;
+    background:transparent url(../title.png) no-repeat center center;
+    z-index:6;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}
+#back{
+    position:absolute;
+    right:0px;
+    bottom:0px;
+    width:176px;
+    height:50px;
+    background:transparent url(../back.png) no-repeat center center;
+    z-index:6;
+    outline:none;
+    cursor:pointer;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+}

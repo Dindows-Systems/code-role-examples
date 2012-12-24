@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<head>
+<style>
+img
+{    padding: 5px;  }
+#outer
+{   width: 100%; height: 100%; }
+.overlay
+{  background-color: #000; opacity: .7; filter: alpha(opacity=70);  position: fixed; top: 0; left: 0;  width: 100%; height: 100%;  z-index: 10; }
+.overlayimg
+{  position: absolute;  z-index: 11;  left: 50px;  top: 50px; }
+</style>
+<script>
+
+function expandPhoto() {
+   // create overlay and append to page
+   var overlay = document.createElement("div");
+   overlay.setAttribute("id","overlay");
+   overlay.setAttribute("class", "overlay");
+   document.body.appendChild(overlay);
+   // create image and append to page
+   var img = document.createElement("img");
+   img.setAttribute("id","img");
+   img.src = this.getAttribute("data-larger");
+   img.setAttribute("class","overlayimg");
+   // click to restore page
+   img.onclick=restore;
+   document.body.appendChild(img);
+}
+// restore page to normal
+function restore() {
+ document.body.removeChild(document.getElementById("overlay"));
+ document.body.removeChild(document.getElementById("img"));
+}
+window.onload=function() {
+   var imgs = document.getElementsByTagName("img");
+   imgs[0].focus();
+   for (var i = 0; i < imgs.length; i++) {
+     imgs[i].onclick=expandPhoto;
+     imgs[i].onkeydown=expandPhoto;
+   }
+}
+</script>
+
+</head>
+<body>
+<div id="outer">
+  <p>Mouse click on image to expand the photo. To close expanded photo, mouse click on image.</p>
+  <img src="post-2018-128020034164.jpg" data-larger="post-2018-128020034164.jpg" alt="image of common dragonfly on bright green and pink flowers" />
+  <img src="post-2018-128020034164.jpg" data-larger="post-2018-128020034164.jpg" alt="Dark orange dragonfly on water lily" />
+  <img src="post-2018-128020034164.jpg" data-larger="post-2018-128020034164.jpg" alt="Dark orange dragonfly on purple water lily" />
+  <img src="post-2018-128020034164.jpg" data-larger="post-2018-128020034164.jpg" alt="Dragonfly on bright pink water lily" />
+</div>
+</body>

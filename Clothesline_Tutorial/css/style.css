@@ -1,0 +1,58 @@
+*{
+margin:0px;
+padding:0px;
+}
+.cl_container{
+	width:100%;
+	height:190px;
+	position:relative;
+	background:transparent url(../images/cl.png) repeat-x 0% 40px;
+}
+.cl_container a{
+	width:130px;
+	height:130px;
+	position:absolute;	
+	top:32px;
+	outline:none;
+	opacity:0.8;	
+}
+.cl_container a:hover{
+	opacity:1.0
+}
+a.digg{
+	left:22px;
+	background:transparent url(../images/digg_koi.png) no-repeat top left;
+}
+/* each plus 168px*/
+a.tech{
+	left:190px;
+	background:transparent url(../images/technorati_koi.png) no-repeat top left;
+}
+a.mixx{
+	left:359px;
+	background:transparent url(../images/mixx_koi.png) no-repeat top left;
+}
+a.reddit{
+	left:529px;
+	background:transparent url(../images/reddit_koi.png) no-repeat top left;
+}
+a.stumble{
+	left:698px;
+	background:transparent url(../images/stumble_koi.png) no-repeat top left;
+}
+a.twitter{
+    left:800px;
+	width:160px;
+	height:160px;
+	top:-85px;
+	background:transparent url(../images/twitter.png) no-repeat top left;
+}
+.cl_container a span{
+	width:17px;
+	height:44px;
+	position:absolute;
+	background:transparent url(../images/pin.png) no-repeat top left;
+	top:-20px;
+	left:55px;
+}
+

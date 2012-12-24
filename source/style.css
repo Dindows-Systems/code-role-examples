@@ -1,0 +1,247 @@
+/*  
+|
+|	Name:			Leopard
+|	Author:			Nettuts/Harley Alexander
+|	Description:	For a Tutorial at http://nettuts.com/, it's aimed at showing how jQuery and jQuery UI can create a 
+|					leopard style Web Desktop. Although basic, it incompases Dashboard and Windows!
+|
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	color: #005693;
+}
+
+body{
+	background: url(images/background.jpg) no-repeat fixed;
+	font: 75%/18px "Lucida Grande", Lucida, Verdana, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+.clr{
+	width: 1;
+	height: 9999em;
+	position: absolute;
+}
+
+.draggableWindow{
+	width: 500px;
+	overflow: auto;
+	clear: both;
+	padding: 0 20px;
+	float: left;
+	margin: 40px;
+	position: absolute;
+	z-index: -9999;
+}
+
+.draggableWindow h1{
+	width: 100%;
+	height: 21px;
+	float: left;
+	
+	font-size: 10px;
+	text-align: center;
+	text-indent: -67px;
+	
+	background: url(images/h1long.png) no-repeat;
+	text-shadow: #fff 1px 0 1px;
+	cursor: default;
+}
+
+.draggableWindow h1 span{
+	width: 67px;
+	height: 21px;
+	float: left;
+	background: url(images/h1short.png) no-repeat left;
+}
+
+.content{
+	background: white;
+	padding: 36px;
+}
+
+.content h2{
+	margin-bottom: 1em;
+}
+
+#smaller{
+	width: 300px;
+	float: right;
+	margin: 10px;
+}
+
+.widget{
+	position: absolute;
+	z-index: 9999;
+	float: left;
+	margin: 1em;
+	list-style: none;
+}
+
+.closeWidget{
+	position: absolute;
+	z-index: 99999;
+	top: -5px;
+	left: -5px;
+}
+
+.stickyWidget{
+	padding: 15px 20px;
+	width: 185px;
+	height: 155px;
+	background: url(images/widgets/sticky.png) no-repeat center;
+}
+
+.stickyWidget>img{
+	display: none;
+}
+
+.stickyWidget textarea{
+	height: 100%;
+	width: 100%;
+	background: 0;
+	border: 0;
+	outline: 0;
+	font-size: 16px;
+	font-family: 'Marker Felt';
+	overflow: hidden;
+}
+
+#dock{
+	position: fixed;
+	margin: 0 auto;
+	bottom: 38px;
+	left: 40%;
+	z-index: 0;
+	list-style: none;
+}
+
+#dock li{
+	float: left;
+}
+
+#dock>li>ul{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#dock>li>ul>li{
+	position: absolute;
+	top: 0;
+}
+
+.closeWidget{
+	cursor: pointer;
+}
+
+#addWidgets{
+	position: absolute;
+	z-index: 9999;
+	bottom: 0;
+	left: 0;
+	width: 96%;
+	height: 164px;
+	background: url(images/dashpanel.png) bottom repeat-x;
+	padding: 0 2%;
+}
+
+#openAddWidgets{
+	display: block;
+	width: 36px;
+	height: 36px;
+	background: url(images/opendashpanel.png) center;
+	position: relative;
+	z-index: 9999;
+	text-indent: -9999em;
+}
+
+#dashPanel ul{
+	list-style: none;
+	margin-top: 27px;
+}
+
+#dashPanel ul li{
+	float: left;
+	padding-right: 30px;
+}
+
+#dashPanel ul li img{
+	display: block;
+}
+
+#dashPanel ul li span{
+	width: 74px;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: #fff 1px 0 1px;
+	color: #17243e;
+	padding-top: 10px;
+}
+
+#desktopItems{
+	list-style: none;
+	width: 100%;
+	height: 100%;
+}
+
+#macintoschHD{
+	background: url(images/macHD.png) no-repeat center top;
+	padding-top: 128px;
+	width: 138px;
+	margin: 20px;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	color: white;
+	font-weight: bold;
+	text-shadow: #000 1px 1px 2px;
+}
+
+.stack{
+	position: absolute;
+	bottom: 0;
+	right: 100px;
+}
+
+.stack ul{
+	list-style: none;
+	position: absolute;
+	top: -30px;
+	z-index: -9;
+}
+
+.stack ul li{
+	position: absolute;
+}
+
+.stack ul li span{
+	display: none;
+}
+
+.stack .openStack li span{
+	display:block;
+	position:absolute;
+	top: 17px;
+	right:60px;
+	height: 14px;
+	line-height: 14px;
+	border: 0;
+	background-color:#000;
+	color: #fcfcfc;
+	text-align: center;
+	opacity: .85;
+	padding: 3px 10px;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	opera-border-radius: 10px;
+	text-shadow: #000 1px 1px 1px;
+}

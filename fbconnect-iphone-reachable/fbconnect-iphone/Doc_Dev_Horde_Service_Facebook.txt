@@ -1,0 +1,175 @@
+ Horde_Service_Facebook
+ General Info
+ Authentication
+ Extended Permissions
+ Doing Something Useful - Calling API Methods
+     Horde_Service_Facebook_Users
+     Horde_Service_Facebook_Friends
+    Horde_Service_Facebook_Notifications
+     Horde_Service_Facebook_Photos
+ Batch Requests
+FQL Queries
+
+ Horde_Service_Facebook
+
+Documentation on the Horde_Service_Facebook package.
+
+
+ General Info
+
+This library is a general purpose client library for interacting with Facebook's API.  It's primary purpose is to allow other Horde applications to both receive and send content to Facebook.  Before using this library you will need to properly set up a web application with Facebook.  The details to do this are beyond the scope of this entry. You can find specific instructions at http://developers.facebook.com/get_started.php?tab=tutorial.  You will need to know the application api key as well as the application's secret key. You will also need a callback page that Facebook will redirect to after successful authentication events (see below).
+
+Example Code to create an instance of Horde_Service_Facebook:
+
+
+
+$key = 'xxx';
+$secret = 'xxx';
+
+// We require a client and request object. We could also
+// pass a logger if desired. If you have a Horde_Controller
+// instance, you could pass that as 'controller' instead of
+// the http_request.
+$context = array('http_client' => new Horde_Http_Client(),
+                 'http_request' => new Horde_Controller_Request_Http());
+
+$facebook = new Horde_Service_Facebook($key, $secret, $context);
+
+
+ Authentication
+
+http://wiki.developers.facebook.com/index.php/Authorizing_Applications
+
+Authenticating a Facebook application from another web application is not a simple task.  The user needs to first be logged into Facebook, then authorize your application to interact with the user's Facebook profile. In addition, in order to allow the application to interact with Facebook without having to redirect the user to a login for each new session, you will need an infinite session. There are also multiple other 'extended permissions' that Facebook requires to be approved individually. It is up to the client application to deal with these requirements. Here is some sample code demonstrating various authentication processes.
+
+First, let's assume that the user has not done anything with your application yet. To check this we could do something like this:
+
+
+
+// See if we have a session (probably from a cookie)
+$haveSession = $facebook->auth->validateSession();
+if ($haveSession) {
+    $uid = $facebook->auth->getUser();
+    $sid = $facebook->auth->getSessionKey();
+}
+
+// You can always verify the session is good by calling
+// this returns the userid that belongs to the current session.
+$facebook->users->getLoggedInUser();
+
+If you do not have a valid session you will have to ask the user to log into Facebook:
+
+
+
+$url = $facebook->auth->getLoginUrl('http://yourcallbackurl');
+echo '<a href="' . $url . '">Login to Facebook</a>';
+
+This link will take the user to a page that will first ask them to login, and then requests permission for you application to interface with their Facebook profile. Once that happens, Facebook will redirect back to your callbackurl. Once back on your callback page, you will need to capture the values that Facebook has sent back to you. The same validateSession() method takes care of that.
+
+
+
+// The true parameter here is telling the library to ignore any
+// seemingly valid sessions obtained from a cookie. This is to prevent
+// an existing cookie (perhaps by another user on a shared computer) from
+// interfering with this process.
+$facebook->auth->validateSession(true);
+
+// After we call this method, if it's successful we will have
+// values for user and session.
+$uid = $facebook->auth->getUser();
+$sid = $facebook->auth->getSessionKey();
+
+// You can also check that any user has accepted your application
+$isAppUser = $facebook->users->isAppUser($uid);
+
+At this point you could store the uid and sid locally, so that next time the user logs into your application, you can use them to manually set up the session instead of making a call to Facebook.
+
+
+
+// Get user and session from storage
+$uid = 'xxx';
+$sid = 'xxx';
+
+// Tell facebook client about it.
+$facebook->auth->setUser($uid, $sid);
+
+// Verify the session is still good by calling a method that requires a valid session
+$haveSession = $facebook->users->getLoggedInUser();
+
+The session key returned by Facebook at this point would only be good until the user logs out of Facebook.  Your user would have to login again to Facebook for each new session. To overcome this, you have to have the user authorize an extended permission called offline_access. Each and every extended permission must be authorized separately.
+
+
+ Extended Permissions
+
+http://wiki.developers.facebook.com/index.php/Extended_permissions
+
+To have the user grant an extended permission to your application, such as offline_access you need to redirect the user to Facebook's authorize.php page, passing the information that you are requesting.
+
+
+
+$url = $facebook->auth->getExtendedPermsUrl(
+           Horde_Service_Facebook_Auth::EXTEND_PERMS_OFFLINE,
+           'http://callbackurl/for/success',
+           'http://callbackurl/for/failure');
+echo '<a href="' . $url . '">Authorize offline access</a>';
+
+After the user accepts (or rejects) the request on Facebook's page, it redirects back to the appropriate callback page. There you would handle the retrieval and storage of any needed data passed back from Facebook. For example, after offline_access is granted, Facebook passes back a auth_token that can be used to request an infinite session. This is done transparently by calling validateSession() again.
+
+
+
+// Again, make sure we ignore cookies since we are requesting
+// a new, infinite, session_key
+$facebook->auth->validateSession(true);
+$uid = $facebook->auth->getUser();
+$sid = $facebook->auth->getSessionKey();
+
+// You *must* store these values for later use. You will
+// *not* be able to obtain the session_key from Facebook again.
+$prefs->setValue('facebook', serialize(array('uid' => $uid, 'sid' => $sid)));
+
+The application can now interact with this user's Facebook account without having the user be logged into Facebook.  You just need to manually set up the session by calling setUser() as described above.
+
+There will be times when you may need to know if a user has already allowed certain extended permissions. For example, the status_update permission is required in order to allow the user's status to updated via the API.  You could check that the user has the permission and then either show them an input box for status updates or a link to request the permission.
+
+
+
+$haveStatusUpdatePerm = $facebook->users->hasAppPermission(
+                            Horde_Service_Facebook_Auth::EXTEND_PERMS_STATUSUPDATE,
+                            $uid);
+if ($haveStatusUpdatePerm) {
+  // Display input box
+} else {
+  $url = $facebook->auth->getExtendedPermsUrl(
+             Horde_Service_Facebook_Auth::EXTEND_PERMS_STATUSUPDATE,
+             'http://callbackurl/for/success',
+             'http://callbackurl/for/failure');
+  echo '<a href="' . $url . '">Allow application to update status</a>';
+}
+
+
+ Doing Something Useful - Calling API Methods
+
+The various API calls are seperated into various classes according to the part the Facebook API your interacting with. For example, as you may have noticed that most of the methods we have used so far have been in the Horde_Service_Facebook_Auth class.  The Horde_Service_Facebook object will lazy load the object that you need, so you don't have to worry about creating these objects yourself. There are some things to be aware of before querying any data from a user's Facebook account. First, you absolutely need to be familiar with Facebook's policies on data usage. There are restrictions on what can be shown to users, what can be stored locally and for how long, as well as other issues. You can read more at http://wiki.developers.facebook.com/index.php/Platform_Policy.  You will also find that there are often times more then one way to obtain information. You can make normal API calls or you can use the Facebook Query Language (FQL) a query language very similar to SQL.  It is often times more efficient to obtain the data you are after using FQL then to use API calls - especially when multiple API calls would be necessary.  In fact, a number of Facebook's API calls are actually just thin wrappers around the matching FQL query. See http://wiki.developers.facebook.com/index.php/FQL for more information on FQL and see the section below on FQL to see how to make these queries using this library.
+
+
+ Horde_Service_Facebook_Users
+
+
+
+$success = $facebook->users->setStatus('playing around with the Horde_Service_Facebook library again.');
+
+
+ Horde_Service_Facebook_Friends
+
+
+Horde_Service_Facebook_Notifications
+
+
+ Horde_Service_Facebook_Photos
+
+
+ Batch Requests
+
+
+FQL Queries
+

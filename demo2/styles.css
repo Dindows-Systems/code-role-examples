@@ -1,0 +1,120 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	/* Setting default text color, background and a font stack */
+	color:#444444;
+	font-size:0.825em;
+	background-color: #eeeeee;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.example{
+	background-color:#F0F0F0;
+	border:1px solid #FFFFFF;
+	margin:40px auto;
+	padding:10px;
+	width:700px;
+	
+	-moz-box-shadow:0 0 2px gray;
+	-webkit-box-shadow:0 0 2px gray;
+	box-shadow:0 0 2px gray;
+}
+
+.demo{
+	background-color:#F5F5F5;
+	border:2px solid white;
+	float:left;
+	width:360px;
+	
+	-moz-box-shadow:0 0 1px gray;
+	-webkit-box-shadow:0 0 1px gray;
+	box-shadow:0 0 1px gray;
+}
+
+.code{
+	background-color:#E6E6E6;
+	border:1px solid #DDDDDD;
+	float:right;
+	padding:10px;
+	width:300px;
+	
+	-moz-box-shadow:0 0 1px white;
+	-webkit-box-shadow:0 0 1px white;
+	box-shadow:0 0 1px white;
+}
+
+pre{
+	text-shadow:0 1px 1px white;
+}
+
+.demoObject{
+	background-color:#338BC7;
+	color:white;
+	font-size:2em;
+	height:100px;
+	margin:30px auto;
+	padding:60px 0 0;
+	text-align:center;
+	width:250px;
+	cursor:pointer;
+
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+}
+
+/* The styles below are only necessary for the styling of the demo page: */
+
+h1{
+	background-color:#DDDDDD;
+	border-bottom:1px solid #CFCFCF;
+	font-size:1.5em;
+	font-weight:normal;
+	margin-bottom:15px;
+	padding:15px;
+	text-align:center;
+}
+
+h2 {
+	font-size:0.9em;
+	font-weight:normal;
+	padding-right:40px;
+	position:relative;
+	right:0;
+	text-align:right;
+	text-transform:uppercase;
+	top:-48px;
+}
+
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+.clear{
+	clear:both;
+}
+
+p.tutInfo{
+	/* The tutorial info on the bottom of the page */
+	padding:10px 0;
+	text-align:center;
+	position:fixed;
+	bottom:0px;
+	background-color:#011D2E;
+	border-top:1px solid #011d2e;
+
+	width:100%;
+}
+
+h1,h2,p.tutInfo{
+	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
+}

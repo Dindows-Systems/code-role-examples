@@ -1,0 +1,142 @@
+body {
+	background: #000;
+	color: #FFF;
+	margin: 0;
+	padding: 0;
+}
+a {
+	color: #F30;
+	text-decoration: none;	
+}
+img {
+	border: 0;	
+}
+
+#title {
+	background: #000;
+	background: rgba(0, 0, 0, 0.8);
+	bottom: 0px;
+	font: 11px Arial, Helvetica, sans-serif;
+	padding: 10px 20px;
+	position: fixed;
+	right: 0px;	
+	text-align: right;
+	width: 100%;
+}
+	#title h1 {
+		font: 30px 'Ultra', Arial, serif;
+		margin: 0;	
+		padding: 0;
+	}
+
+#thumbnails {
+	background: #000;
+	background: rgba(0, 0, 0, 0.8);	
+	height: 90px;
+	left: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+	#thumbnails ul {
+		margin: 0;
+		padding: 0;
+	}
+		#thumbnails li {
+			float: left;
+			list-style: none;
+			margin: 5px;
+			padding: 0;
+		}
+		#thumbnails a {
+			outline: none;
+		}
+		#thumbnails img {
+			width: 112px;
+		}
+			
+#pointer {
+	border: 2px solid #F30;
+	cursor: pointer;
+	height: 75px;
+	left: -100px;
+	margin: 3px;
+	position: absolute;
+	width: 112px;
+}
+
+#flash {
+	background: #FFF;
+	display: none;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+}
+
+#pause {
+	display: none;
+	font: 100px 'Ultra', arial, serif;
+	height: 100%;
+	opacity: 0.4;
+	position: absolute;
+	text-align: center;
+	text-shadow: 0 0 5px #000;
+	width: 100%;
+}
+	#pause a {
+		color: #FFF;
+		height: 100px;
+		left: 50%;
+		margin: -50px 0 0 -250px;
+		position: absolute;
+		text-transform: uppercase;
+		top: 50%;
+		width: 500px;
+	}
+
+#volume {
+	left: 10px;
+	opacity: 0.8;
+	position: absolute;
+	top: 100px;
+}
+    #volume a {
+    	background: transparent url(../img/icons.png) no-repeat;
+    	display: block;
+    	height: 30px;
+    	text-indent: -9999px;
+    	width: 30px;
+    }
+	#volume.all a {
+		background-position: 0 0;
+	}
+	#volume.some a {
+		background-position: -30px 0;
+	}
+	#volume.none a {
+		background-position: -60px 0;
+	}
+	
+.vegas-loading {
+	top: auto;
+	bottom: 40px;
+	left: 40px;
+}
+.vegas-overlay {
+	background-image: url(../js/vegas/overlays/02.png);
+}
+
+.jspHorizontalBar {
+	height: 5px;	
+}
+	.jspHorizontalBar .jspTrack {
+		background: #333;
+	}
+	.jspHorizontalBar .jspDrag {
+		background: #666;
+		cursor: ew-resize;
+	}
+	#thumbnails:hover .jspHorizontalBar .jspDrag {
+		background: #F30;
+    }           

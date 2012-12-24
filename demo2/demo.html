@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MicroTut: The jQuery Hover Method | Tutorialzine demo</title>
+
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+						   
+	$('.selectorClass').hover(
+	function(){
+		$(this).stop().fadeTo('slow',0.4);
+	},
+	function(){
+		$(this).stop().fadeTo('slow',1);
+	});
+	
+	$('.selectorClass2').mouseenter(function(){
+		$(this).stop().fadeTo('slow',0.4);
+	}).mouseleave(function(){
+		$(this).stop().fadeTo('slow',1);
+	});
+
+	$('.selectorClass3').hover(function(){
+		this.check = this.check || 1;
+		$(this).stop().fadeTo('slow',this.check++%2==0 ? 1 : 0.4);
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+<h1>MicroTut: The jQuery Hover Method</h1>
+<h2>Go Back <a href="http://tutorialzine.com/2010/02/the-jquery-hover-method/">To The Tutorial &raquo;</a></h2>
+<div class="example">
+
+    <div class="demo">
+
+	  <div class="selectorClass demoObject">Hover Me</div>
+    
+  </div>
+    
+    <div class="code"><pre>$('.selectorClass').hover(
+function(){
+	$(this).stop().fadeTo('slow',0.4);
+},
+function(){
+	$(this).stop().fadeTo('slow',1);
+});
+</pre></div>
+
+	<div class="clear"></div>
+</div>
+
+
+<div class="example">
+
+    <div class="demo">
+
+		<div class="selectorClass2 demoObject">Hover Me</div>
+    
+    </div>
+    
+    <div class="code"><pre>$('.selectorClass2').mouseenter(function(){
+	$(this).stop().fadeTo('slow',0.4);
+}).mouseleave(function(){
+	$(this).stop().fadeTo('slow',1);
+});
+</pre></div>
+
+	<div class="clear"></div>
+</div>
+
+
+
+<div class="example">
+
+    <div class="demo">
+
+		<div class="selectorClass3 demoObject">Hover Me</div>
+    
+    </div>
+    
+    <div class="code"><pre>$('.selectorClass3').hover(function(){
+	this.check = this.check || 1;
+	$(this).stop().fadeTo('slow',
+    this.check++%2==0 ? 1 : 0.4);
+});
+</pre></div>
+
+	<div class="clear"></div>
+</div>
+
+</body>
+</html>

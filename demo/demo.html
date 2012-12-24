@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MicroTut: Centering a Div Both Horizontally And Vertically | Tutorialzine demo</title>
+
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+
+<body>
+<h1>MicroTut: Centering a Div Both Horizontally And Vertically</h1>
+<h2>Go Back <a href="http://tutorialzine.com/2010/03/centering-div-vertically-and-horizontally/">To The Tutorial &raquo;</a></h2>
+
+<div class="example">
+View the examples separately to see the code in practice - <a href="1.html">Example 1</a> | <a href="2.html">Example 2</a> | <a href="3.html">Example 3</a>
+</div>
+
+<div class="example">
+
+    <div class="demo">
+
+	  <iframe src="1.html"></iframe>
+    
+</div>
+    
+    <div class="code"><pre>.className{
+	width:270px;
+	height:150px;
+	margin:0 auto;
+}
+</pre></div>
+
+	<div class="clear"></div>
+</div>
+
+
+<div class="example">
+
+    <div class="demo">
+
+		 <iframe src="2.html"></iframe>
+    
+  </div>
+    
+    <div class="code"><pre>.className{
+	width:270px;
+	height:150px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-75px 0 0 -135px;
+}
+</pre></div>
+
+	<div class="clear"></div>
+</div>
+
+
+
+<div class="example">
+
+    <div class="demo">
+
+		 <iframe src="3.html"></iframe>
+    
+  </div>
+    
+    <div class="code"><pre>$(document).ready(function(){
+						   
+ $(window).resize(function(){
+
+  $('.className').css({
+   position:'absolute',
+   left: ($(window).width() 
+     - $('.className').outerWidth())/2,
+   top: ($(window).height() 
+     - $('.className').outerHeight())/2
+  });
+		
+ });
+ 
+ // To initially run the function:
+ $(window).resize();
+
+});
+</pre></div>
+
+	<div class="clear"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Animated 3D Bar Chart with CSS3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Animated 3D Bar Chart with CSS3" />
+        <meta name="keywords" content="css3, bar chart, animation, 3d" />
+        <meta name="author" content="Sergey Lukin for Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/graph.css" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300,300italic' rel='stylesheet' type='text/css'>
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/modernizr.custom.04022.js"></script> 
+			<style>.ie-note-1{display:block;} .main{display:none;}</style>
+		<![endif]-->
+		<!--[if IE 9]><style>.ie-note-2{display:block;}</style><![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <!-- Codrops top bar -->
+            <div class="codrops-top">
+                <a href="http://tympanus.net/Tutorials/CSS3AnnotationOverlayEffect/">
+                    <strong>&laquo; Previous Demo: </strong>Annotation Overlay Effect with CSS3
+                </a>
+                <span class="right">
+                    <a href="http://tympanus.net/codrops/2012/05/21/animated-3d-bar-chart-with-css3/">
+                        <strong>Back to the Codrops Article</strong>
+                    </a>
+                </span>
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+            <header>
+                <h1>Animated 3D Bar Chart <span>with CSS3</span></h1>
+				<h2 class="ie-note ie-note-1">Please view this in a modern browser.</h2>
+				<h2 class="ie-note ie-note-2">CSS3 Transitions don't work in Internet Explorer &lt; 10</h2>
+            </header>
+
+            <section class="main">
+				
+				<span class="button-label">Size:</span>
+                <input type="radio" name="resize-graph" id="graph-small" /><label for="graph-small">Small</label>
+                <input type="radio" name="resize-graph" id="graph-normal" checked="checked" /><label for="graph-normal">Normal</label>
+                <input type="radio" name="resize-graph" id="graph-large" /><label for="graph-large">Large</label>   
+
+				<span class="button-label">Color:</span>
+                <input type="radio" name="paint-graph" id="graph-blue" checked="checked" /><label for="graph-blue">Blue</label>
+                <input type="radio" name="paint-graph" id="graph-green" /><label for="graph-green">Green</label>
+                <input type="radio" name="paint-graph" id="graph-rainbow" /><label for="graph-rainbow">Rainbow</label>
+
+				<span class="button-label">Product:</span>
+                <input type="radio" name="fill-graph" id="f-none" /><label for="f-none">None</label>
+                <input type="radio" name="fill-graph" id="f-product1" checked="checked" /><label for="f-product1">Product 1</label>
+                <input type="radio" name="fill-graph" id="f-product2" /><label for="f-product2">Product 2</label>
+                <input type="radio" name="fill-graph" id="f-product3" /><label for="f-product3">Product 3</label>
+
+                <ul class="graph-container">
+                    <li>
+                        <span>2008</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">25</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2009</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">50</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2010</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">75</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2011</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">100</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2012</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">50</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <ul class="graph-marker-container">
+                            <li style="bottom:25%;"><span>25%</span></li>
+                            <li style="bottom:50%;"><span>50%</span></li>
+                            <li style="bottom:75%;"><span>75%</span></li>
+                            <li style="bottom:100%;"><span>100%</span></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </section>
+
+        </div>
+
+    </body>
+</html>

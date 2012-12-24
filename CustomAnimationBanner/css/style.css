@@ -1,0 +1,81 @@
+.ca_banner{
+	position:relative;
+	overflow:hidden;
+	background:#f0f0f0;
+	padding:10px;
+	border:1px solid #fff;
+	-moz-box-shadow:0px 0px 2px #aaa inset;
+}
+.ca_slide{
+	width:100%;
+	height:100%;
+	position:relative;
+	overflow:hidden;
+}
+.ca_zone{
+	position:absolute;
+	width:100%;
+}
+.ca_wrap{
+	position:relative;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.ca_wrap img.ca_shown{
+	display:inline !important;
+}
+/* Custom styles of banner1 */
+.ca_banner1{
+	width:650px;
+	height:300px;
+}
+.ca_bg1{
+	background:#fff url(../images/bg.jpg) no-repeat top left;
+}
+.ca_banner1 .ca_zone1{
+	top:0px;
+	left:0px;
+}
+.ca_banner1 .ca_wrap1{
+	width:320px;
+	height:300px;
+}
+.ca_banner1 .ca_zone2{
+	top:100px;
+	left:240px;
+}
+.ca_banner1 .ca_wrap2{
+	width:387px;
+	height:203px;
+}
+.ca_banner1 .ca_zone3{
+	top:32px;
+	left:250px;
+}
+.ca_banner1 .ca_wrap3{
+	width:378px;
+	height:31px;
+}
+
+/*Custom Style for Second Banner*/
+.ca_banner2{
+	width:120px;
+	height:600px;
+}
+.ca_bg2{
+	background:#fff url(../images/bgSmall.jpg) no-repeat top left;
+}
+.ca_banner2 .ca_zone1{
+	top:10px;
+	left:0px;
+}
+.ca_banner2 .ca_wrap1, /*They are the same size*/
+.ca_banner2 .ca_wrap2{
+	width:120px;
+	height:220px;
+}
+.ca_banner2 .ca_zone2{
+	top:250px;
+	left:0px;
+}

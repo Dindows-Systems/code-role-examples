@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Custom Animation Banner with jQuery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Custom Animation Banner with jQuery" />
+        <meta name="keywords" content="jquery, animation, banner, customize, css3, fadein, slider, slideshow"/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+		<script src="js/cufon-yui.js" type="text/javascript"></script>
+		<script src="js/Bebas_400.font.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			Cufon.replace('a, li, h1');
+			Cufon('h1',{
+				textShadow: '1px 1px #fff'
+			});
+		</script>
+        <style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				background:#f9f9f9 url(background.jpg) repeat top left;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:12px;
+				color: #fff;
+				padding:20px;
+			}
+			h1{
+				font-weight:normal;
+				color:#888;
+				font-size:35px;
+				word-spacing:6px;
+				margin-left:20px;
+			}
+			span.reference{
+				font-family:Arial;
+				position:fixed;
+				left:10px;
+				bottom:10px;
+				font-size:12px;
+			}
+			span.reference a{
+				color:#999;
+				text-transform:uppercase;
+				text-decoration:none;
+			}
+			.ca_banner{
+				margin:20px;
+				float:left;
+			}
+			.content{
+				width:960px;
+				margin:0 auto;
+			}
+		</style>
+    </head>
+
+    <body>
+		<div class="content">
+			<h1>Custom Animation Banner with jQuery</h1>
+			<div id="ca_banner1" class="ca_banner ca_banner1">
+				<div class="ca_slide ca_bg1">
+					<div class="ca_zone ca_zone1"><!--Product-->
+						<div class="ca_wrap ca_wrap1">
+							<img src="images/product1.png" class="ca_shown" alt=""/>
+							<img src="images/product2.png" alt="" style="display:none;"/>
+							<img src="images/product3.png" alt="" style="display:none;"/>
+							<img src="images/product4.png" alt="" style="display:none;"/>
+							<img src="images/product5.png" alt="" style="display:none;"/>
+						</div>
+					</div>
+					<div class="ca_zone ca_zone2"><!--Line-->
+						<div class="ca_wrap ca_wrap2">
+							<img src="images/line1.png" class="ca_shown" alt=""/>
+							<img src="images/line2.png" alt="" style="display:none;"/>
+						</div>
+					</div>
+					<div class="ca_zone ca_zone3"><!--Title-->
+						<div class="ca_wrap ca_wrap3">
+							<img src="images/title1.png" class="ca_shown" alt="" />
+							<img src="images/title2.png" alt="" style="display:none;"/>
+							<img src="images/title3.png" alt="" style="display:none;"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="ca_banner2" class="ca_banner ca_banner2">
+				<div class="ca_slide ca_bg2">
+					<div class="ca_zone ca_zone1"><!--Product Top-->
+						<div class="ca_wrap ca_wrap1">
+							<img src="images/smallProduct1.png" class="ca_shown" alt=""/>
+							<img src="images/smallProduct2.png" alt="" style="display:none;"/>
+						</div>
+					</div>
+					<div class="ca_zone ca_zone2"><!--Product Middle-->
+						<div class="ca_wrap ca_wrap2">
+							<img src="images/smallProduct3.png" class="ca_shown" alt=""/>
+							<img src="images/smallProduct4.png" alt="" style="display:none;"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style="clear:both;"></div>
+			<div>
+				<span class="reference">
+					<a href="http://tympanus.net/codrops/2010/10/18/custom-animation-banner/">back to the Codrops tutorial</a>
+				</span>
+			</div>
+
+		</div>
+
+        <!-- The JavaScript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+		<script src="jquery.transform-0.8.0.min.js"></script>
+		<script src="jquery.banner.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+				//we want 5 steps / slides for the first banner
+				//let's define what happens for each one:
+				
+				/*
+				the variable steps has the following structure:
+				steps:[step1,step2,...,stepN]
+				On each step/transition we define the transition for each one of the areas in the banner
+				For the first banner for example, we have 3 areas, each one with a specific number
+				of images (the images inside of the "ca_wrap" div). One image is shown as default, 
+				which for our examples is always the first one (1). 
+				So as an example, our first step/transition can be:
+				[{"to" : "2"}, {"effect": "zoomOutRotated-zoomInRotated"}],
+				[{"to" : "1"}, {}],
+				[{"to" : "2"}, {"effect": "slideOutRight-slideInRight"}]
+				This means that for the first transition, the first and third areas are going to show
+				their second image, and the second area remains untouched. When we change each image we 
+				apply a specific effect, which is defined in the plugin.
+				*/
+				$('#ca_banner1').banner({
+					steps : [
+						[
+							//1 step:
+							[{"to" : "2"}, {"effect": "zoomOutRotated-zoomInRotated"}],
+							[{"to" : "1"}, {}],
+							[{"to" : "2"}, {"effect": "slideOutRight-slideInRight"}]
+						],
+						[
+							//2 step:
+							[{"to" : "3"}, {"effect":"slideOutTop-slideInTop"}],
+							[{"to" : "1"}, {}],
+							[{"to" : "2"}, {}]
+						],
+						[
+							//3 step:
+							[{"to" : "4"}, {"effect": "zoomOut-zoomIn"}],
+							[{"to" : "2"}, {"effect": "slideOutRight-slideInRight"}],
+							[{"to" : "2"}, {}]
+						],
+						[
+							//4 step
+							[{"to" : "5"}, {"effect": "slideOutBottom-slideInTop"}],
+							[{"to" : "2"}, {}],
+							[{"to" : "3"}, {"effect": "zoomOut-zoomIn"}]
+						],
+						[
+							//5 step
+							[{"to" : "1"}, {"effect": "slideOutLeft-slideInLeft"}],
+							[{"to" : "1"}, {"effect": "zoomOut-zoomIn"}],
+							[{"to" : "1"}, {"effect": "slideOutRight-slideInRight"}]
+						]
+					],
+					total_steps	: 5,
+					speed : 3000
+				});
+				
+				//we want 4 steps/slides for the second banner:
+				$('#ca_banner2').banner({
+					steps : [
+						[
+							//1 step:
+							[{"to" : "2"}, {"effect": "slideOutTop-slideInTop"}],
+							[{"to" : "2"}, {"effect": "slideOutTop-slideInTop"}]
+						],
+						[
+							//2 step:
+							[{"to" : "1"}, {"effect": "slideOutRight-slideInRight"}],
+							[{"to" : "1"}, {"effect": "slideOutLeft-slideInLeft"}],
+						],
+						[
+							//3 step:
+							[{"to" : "2"}, {"effect": "slideOutLeft-slideInLeft"}],
+							[{"to" : "2"}, {"effect": "slideOutRight-slideInRight"}]
+						],
+						[
+							//4 step:
+							[{"to" : "1"}, {"effect":"zoomOutRotated-zoomInRotated"}],
+							[{"to" : "1"}, {"effect": "zoomOutRotated-zoomInRotated"}],
+						]
+					],
+					total_steps	: 4,
+					speed 		: 2000
+				});
+            });
+        </script>
+    </body>
+</html>

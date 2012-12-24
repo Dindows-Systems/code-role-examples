@@ -1,0 +1,249 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	background-color:#a7aeb7;
+	background-image:-moz-radial-gradient(circle closest-corner, #dbdbdc 0%, #a7aeb7 100%);
+	background-image:-o-radial-gradient(circle closest-corner, #dbdbdc 0%, #a7aeb7 100%);
+	background-image:-webkit-radial-gradient(circle closest-corner, #dbdbdc 0%, #a7aeb7 100%);
+	background-image:radial-gradient(circle closest-corner, #dbdbdc 0%, #a7aeb7 100%);
+	
+	position:relative;
+}
+
+body{
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+	min-height: 800px;
+}
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	color:#54a6de;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+section, footer, nav{
+	display: block;
+}
+
+
+/*----------------------------
+	The Header
+-----------------------------*/
+
+
+header{
+	background-color:#b0b5bd;
+	background-image:-moz-radial-gradient(circle closest-corner, #f5f6f8 0%, #c2c9d3 100%);
+	background-image:-o-radial-gradient(circle closest-corner, #f5f6f8 0%, #c2c9d3 100%);
+	background-image:-webkit-radial-gradient(circle closest-corner, #f5f6f8 0%, #c2c9d3 100%);
+	background-image:radial-gradient(circle closest-corner, #f5f6f8 0%, #c2c9d3 100%);
+	
+	position:relative;
+	text-align:center;
+	padding: 80px;
+	
+	box-shadow: 0px 1px 8px #666;
+}
+
+header:before{
+	content:'';
+	background: url('../img/top_line_bg.jpg') repeat-x;
+	height:5px;
+	width:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	box-shadow:0 1px 1px #bbb;
+}
+
+header:after{
+	content:'';
+	background: url('../img/mid_line_bg.jpg') repeat-x;
+	height:4px;
+	width:100%;
+	bottom:0;
+	left:0;
+	position:absolute;
+}
+
+header h1{
+	font:40px 'Open Sans Condensed', 'sans-serif';
+	color:#737d8d;
+	margin-bottom: 15px;
+}
+
+header input{
+	font:inherit;
+	font-size:14px;
+	line-height:1;
+	color:#666;
+	text-align:center;
+	
+	padding:10px 0;
+	width:355px;
+	background-color:#fff;
+	border-radius:3px;
+	outline:none !important;
+	border:1px solid #c1c9d8;
+	box-shadow:1px 1px 1px #ccc;
+	
+}
+
+header h2{
+	font-size:12px;
+	font-weight:normal;
+	color:#84878c;
+	font-style:italic;
+	margin-top:10px;
+}
+
+
+/*----------------------------
+	Products
+-----------------------------*/
+
+
+#products{
+	width: 880px;
+	margin: 80px auto;
+	text-align: left;
+	overflow: hidden;
+	padding: 5px;
+}
+
+#products .product{
+	border-radius:2px;
+	box-shadow:1px 1px 2px #aaa, 0 0 15px #e2e2e2 inset;
+	
+	width:180px;
+	height:180px;
+	
+	float:left;
+	position:relative;
+	background-color:#fff;
+	margin:0 40px 40px 0;
+	
+	text-decoration:none !important;
+}
+
+#products .product img{
+	max-width: 150px;
+	max-height:120px;
+	margin:15px auto 0;
+	display:block;
+}
+
+#products .product span{
+	font-size:13px;
+	color:#5a5a5a;
+	text-align:center;
+	position:absolute;
+	width:100%;
+	bottom:0px;
+	left:0;
+	padding:10px 0;
+	background-color:#f1f2f3;
+	border-radius:0 0 3px 3px;
+	overflow: hidden;
+	white-space: nowrap;
+	border-top:1px solid #d7dae0;
+	box-shadow:0 0 15px #d8d8d8 inset;	
+}
+
+#products .product:before{
+	content:attr(data-price);
+	font-size:11px;
+	color:#fff;
+	position:absolute;
+	top:-2px;
+	right:4px;
+	padding:4px 7px;
+	z-index:10;
+	background-color:#555;
+	box-shadow: 1px 1px 0 rgba(100, 100, 100, 0.3);
+}
+
+#preload{
+    margin-right: -26px;
+    visibility:hidden;
+    position:relative;
+    top: 5px;
+    left: 10px;
+}
+
+#message{
+	display:none;
+	text-align:center;
+	color:#565a62;
+}
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px #111111;
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}

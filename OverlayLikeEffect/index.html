@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Overlay-like Effect with jQuery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="description" content="Overlay-like Effect with jQuery" />
+        <meta name="keywords" content="overlay, jquery, effect, fade out, change color, animate"/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body>
+		<div class="header">
+			<a class="left" href="http://tympanus.net/Tutorials/FullscreenGalleryThumbnailFlip/"><<< Fullscreen Gallery with Thumbnail Flip</a>
+			<a class="back" href="http://tympanus.net/codrops/2011/02/15/overlay-like-effect/">back to the Codrops tutorial >>></a>
+		</div>
+		<div id="container" class="container">
+			<ul id="menu" class="menu">
+				<li><a href="#"><img src="images/1.png" alt="1"/></a></li>
+				<li><a href="#"><img src="images/2.png" alt="2"/></a></li>
+				<li><a href="#"><img src="images/3.png" alt="3"/></a></li>
+				<li><a href="#"><img src="images/4.png" alt="4"/></a></li>
+				<li><a href="#" id="effect-n"><img src="images/5.png" alt="5"/></a></li>
+			</ul>
+			<div class="content">
+				<h1>Overlay-like Effect</h1>
+				<h2>Custom effects with jQuery</h2>
+
+				<p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+
+				<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+				
+				<h3 class="effect-n">Vapour around me</h3>
+				<p class="effect-n">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary.</p>
+				
+				<p class="effect-n">O my friend -- but it is too much for my strength -- I sink under the weight of the splendour of these visions!</p>
+				<h3>I am so happy, my dear friend</h3>
+				<p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+				
+				
+				<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+
+				<p>I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
+
+				<p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath of that universal love which bears and sustains us, as it floats around us in an eternity of bliss; and then, my friend, when darkness overspreads my eyes, and heaven and earth seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with longing, Oh, would I could describe these conceptions, could impress upon paper all that is living so full and warm within me, that it might be the mirror of my soul, as my soul is the mirror of the infinite God!</p>
+				
+				<h3>I sink under the weight</h3>
+				<p>O my friend -- but it is too much for my strength -- I sink under the weight of the splendour of these visions!</p>
+
+				<p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+
+				<p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+
+				<p>I am so happy, my dear friend.</p>
+			</div>
+
+			<div class="footer">
+				Tutorials and Demos by Codrops 
+				<a href="http://tympanus.net/codrops/">Home</a>|
+				<a href="http://twitter.com/codrops">Twitter</a>|
+				<a href="http://www.facebook.com/pages/Codrops/159107397912">Facebook</a>|
+				<a href="http://feeds.feedburner.com/codrops">RSS</a>|
+				<a href="http://feedburner.google.com/fb/a/mailverify?uri=tympanus&loc=en_US">Email Subscription</a>|
+				<a href="mailto:codrops@googlemail.com">Contact</a>|
+				<a href="http://glyphicons.com/">Icons by http://glyphicons.com/</a>
+			</div>
+		</div>
+		<!-- The JavaScript -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+			$(function() {
+			/*
+			the menu list element,
+			the container and content divs
+			*/
+			var $menu			= $('#menu'),
+				$container		= $('#container'),
+				$content		= $container.find('.content');
+			
+			/*
+			lets add the classes effect, e-fade, and e-color to some elements.
+			e-fade : this will decrease the opacity of the element
+			e-color: this will change the color of the element
+			*/		
+			$content
+			.find('p')
+			.addClass('effect e-fade')
+			.end()
+			.find('h1, h2, h3')
+			.addClass('effect e-fade e-color');
+				
+			/*
+			elems is all the elements with class effect.
+			overlayEffect is our function / module that will take care of the animations
+			*/	
+			var $elems			= $(document).find('.effect'),
+				OverlayEffect 	= (function(){
+						//speed for animations
+					var speed				= 1000,
+						//the event that triggers the effect
+						eventOff			= 'mouseenter',
+						//the event that stops the effect
+						eventOn				= 'mouseleave',
+						//this is the color that the elements will have after eventOff
+						colorOff			= '#AAAAAA',
+						//saves the original color of each e-color element,
+						//and calls the methos to initialize the events
+						init				= function() {
+							$elems.each(function(){
+								var $el		= $(this);
+								if($el.hasClass('e-color'))	
+									$el.data('original-color',$el.css('color'));
+							});
+							initEventsHandler();
+						},
+						//initializes the events eventOff / eventOn
+						initEventsHandler 	= function() {
+							$menu
+							.delegate('a',eventOff,function(e){
+								//relation is the id of the element, 
+								//and the class of related elements
+								var relation	= $(this).attr('id');
+								animateElems('off',relation);
+								return false;
+							})
+							.delegate('a',eventOn,function(e){
+								var relation	= $(this).attr('id');
+								animateElems('on',relation);
+								return false;
+							});	
+						},
+						//animates the color and / or opacity
+						animateElems		= function(dir,relation) {
+							var $e	= $elems;
+							
+							switch(dir){
+								case 'on'	:
+									//if there are elements on the page with class = relation
+									//then these elements will be excluded for the animation
+									if(relation)
+										$e	= $elems.not('.'+relation);
+									
+									$e.each(function(){
+										var $el		= $(this),
+											color	= $el.data('original-color'),
+											param	= {};
+										
+										if($el.hasClass('e-color'))
+											param.color		= color;
+										if($el.hasClass('e-fade'))
+											param.opacity	= 1;
+
+										$el.stop().animate(param,speed);	
+									});
+									
+									break;
+								case 'off'	:
+									if(relation)
+										$e	= $elems.not('.'+relation);
+									
+									$e.each(function(){
+										var $el		= $(this),
+											param	= {};
+										
+										if($el.hasClass('e-color'))
+											param.color		= colorOff;
+										if($el.hasClass('e-fade'))
+											param.opacity	= 0.1;
+
+										$el.stop().animate(param,speed);	
+									});
+									
+									break;
+							}
+						};
+						
+					return {
+						init				: init
+					};
+				})();
+				
+			/*
+			call the init method of OverlayEffect
+			*/
+			OverlayEffect.init();
+			});
+        </script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+.cc_menu{
+	width:700px; /*140px * 5*/
+	height:600px;
+	position:relative;
+	font-size:14px;
+	text-transform:uppercase;
+	color:#fff;
+}
+.cc_item{
+	text-align:center;
+	width:140px;
+	height:600px;
+	float:left;
+	border-bottom:1px solid #000;
+	background:#444 url(../images/bg.png) repeat top left;
+	position:relative;
+	-moz-box-shadow:3px -3px 10px #000;
+	-webkit-box-shadow:3px -3px 10px #000;
+	box-shadow:3px -3px 10px #000;
+}
+span.cc_title{
+	color:#fff;
+	font-size:16px;
+	top:200px;
+	left:5px;
+	position:absolute;
+	padding:3px 0px;
+	background:#111;
+	width:130px;
+	display:block;
+	z-index:11;
+	-moz-box-shadow:1px 1px 4px #000;
+	-webkit-box-shadow:1px 1px 4px #000;
+	box-shadow:1px 1px 4px #000;
+}
+.cc_submenu ul{
+	list-style:none;
+	width:140px;
+	margin:0;
+	padding:0;
+	height:0px; /*increase to 200px to slide up*/
+	overflow:hidden;
+	text-align:left;
+	background:#000;
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	opacity:0.7;
+	z-index:13;
+}
+.cc_submenu ul li{
+	color:#ddd;
+	cursor:pointer;
+	padding:10px;
+}
+.cc_item img{
+	position:absolute;
+	width:140px;
+	height:600px;
+	top:-600px;
+	left:0px;
+}
+.cc_content{
+	width:600px;
+	height:600px;
+	border-bottom:1px solid #000;
+	position:absolute;
+	left:-700px;
+	background:#444 url(../images/bg.png) repeat top left;
+	overflow:hidden;
+	-moz-box-shadow:4px 0 7px #000;
+	-webkit-box-shadow:4px 0 7px #000;
+	box-shadow:4px 0 7px #000;
+}
+.cc_content div{
+	display:none;
+	margin:20px;
+}
+.cc_content p{
+	background:#000;
+	padding:20px;
+	opacity:0.7;
+}
+span.cc_back{
+	position:absolute;
+	bottom:10px;
+	right:10px;
+	cursor:pointer;
+	color:#ddd;
+}
