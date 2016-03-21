@@ -1,1 +1,0 @@
-The ZIP does not contain any video files, please add your own videos.
